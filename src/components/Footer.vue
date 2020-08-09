@@ -27,7 +27,7 @@
       <!-- Rights -->
 
       <div class="rights">
-        <p>© 2017 PAVSHOP All right reserved.</p>
+        <p>© 2020 SEJATI STORE All right reserved. Themes by PavSHOP</p>
         <!-- <div class="scroll">
           <a href="#wrap" class="go-up">
             <i class="lnr lnr-arrow-up"></i>
@@ -40,6 +40,16 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
 };
 </script>
+
+<style scoped>
+footer {
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+.rights {
+  margin: 0;
+}
+</style>

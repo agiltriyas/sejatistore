@@ -5,9 +5,9 @@
         <div class="container">
           <!-- Logo -->
           <div class="logo">
-            <a href>
+            <router-link to="/">
               <img class="img-responsive" src="images/logosejatistore.png" alt />
-            </a>
+            </router-link>
           </div>
           <nav class="navbar ownmenu">
             <div class="navbar-header">
@@ -28,12 +28,12 @@
             <!-- NAV -->
             <div class="collapse navbar-collapse" id="nav-open-btn">
               <ul class="nav">
-                <li class="dropdown active">
+                <!-- <li class="dropdown active">
                   <a href="#." class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                </li>
-                <li>
-                  <a href="contact.html">contact</a>
-                </li>
+                </li>-->
+                <!-- <li>
+                  <a href="about.html">about</a>
+                </li>-->
               </ul>
             </div>
           </nav>
@@ -44,7 +44,7 @@
 </template>
 <script>
 export default {
-  name: "Header"
+  name: "Header",
 };
 </script>
 

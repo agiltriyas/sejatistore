@@ -1,26 +1,47 @@
 <template>
   <div class="hero">
+    <section class="small-about padding-top-150 padding-bottom-50">
+      <div class="container">
+        <!-- Main Heading -->
+        <div class="heading text-center">
+          <h4>about SEJATI STORE</h4>
+          <p>
+            Toko online bagi para reseller yang mencari barang-barang kebutuhan rumah tangga dengan harga terjangkau dan
+            kualitas prima, mengedepankan transaksi dengan sistem COD menjadi salah satu keunggulan kami karena dengan begitu
+            kami berharap customer puas dengan cara bertransaksi yang baru dan aman.
+          </p>
+        </div>
+      </div>
+    </section>
     <!-- Popular Products -->
-    <section class="shop-page padding-top-100 padding-bottom-50">
+    <section class="shop-page padding-top-50 margin-bottom-100">
       <div class="container">
         <div class="item-display">
           <div class="row">
             <div class="col-xs-6">
               <span
                 class="product-num text-left"
-              >Showing {{from}} - {{perpage}} of {{total}} products</span>
+              >Showing {{from}} - {{perpage>9?perpage:total}} of {{total}} products</span>
             </div>
 
             <!-- Products Select -->
             <div class="col-xs-6">
               <div class="pull-right">
-                <!-- GRID & LIST -->
-                <a href="#." class="grid-style">
-                  <i class="icon-grid"></i>
-                </a>
-                <a href="#." class="list-style">
-                  <i class="icon-list"></i>
-                </a>
+                <!-- SEARCH -->
+                <div class="search">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    aria-describedby="name"
+                    placeholder="Search"
+                    v-model="name"
+                    @keyup="search()"
+                  />
+                  <button type="submit">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -38,7 +59,7 @@
                   v-if="itemProduct.galleries[0]"
                   :src="itemProduct.galleries[0].picture"
                   alt
-                  style="max-height:270px"
+                  style="height:270px"
                 />
                 <img class="img-1" v-else src="images/logo-no.jpg" alt />
 
@@ -84,7 +105,7 @@
         <div v-else class="papular-block row">
           <h4>Data tidak tersedia</h4>
         </div>
-        <div class="papular-block row padding-bottom-50">
+        <div class="papular-block row padding-bottom-100">
           <nav v-cloak>
             <ul class="flex-direction-nav">
               <li class="flex-nav-prev" v-if="prevpage">
@@ -122,17 +143,18 @@ export default {
       prevpage: "",
       perpage: "",
       total: "",
-      from: ""
+      from: "",
+      name: "",
     };
   },
   mounted() {
     axios
-      .get("http://127.0.0.1:8001/api/product", {
+      .get("http://dashboard.sejatistore.my.id/api/product", {
         params: {
-          limit: 9
-        }
+          limit: 8,
+        },
       })
-      .then(res => {
+      .then((res) => {
         this.products = res.data.data.data;
         this.nextpage = res.data.data.next_page_url;
         this.prevpage = res.data.data.prev_page_url;
@@ -140,24 +162,48 @@ export default {
         this.total = res.data.data.total;
         this.from = res.data.data.from;
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   },
   methods: {
     getProducts(url, limit) {
       axios
         .get(url, {
           params: {
-            limit: limit
-          }
+            limit: limit,
+          },
         })
-        .then(res => {
+        .then((res) => {
           this.products = res.data.data.data;
           this.nextpage = res.data.data.next_page_url;
           this.prevpage = res.data.data.prev_page_url;
           this.from = res.data.data.from;
         })
-        .catch(err => console.log(err));
-    }
-  }
+        .catch((err) => console.log(err));
+    },
+    search() {
+      axios
+        .get("http://dashboard.sejatistore.my.id/api/product", {
+          params: {
+            limit: 9,
+            name: this.name,
+          },
+        })
+        .then((res) => {
+          this.products = res.data.data.data;
+          this.nextpage = res.data.data.next_page_url;
+          this.prevpage = res.data.data.prev_page_url;
+          this.perpage = res.data.data.per_page;
+          this.total = res.data.data.total;
+          this.from = res.data.data.from;
+        })
+        .catch((err) => console.log(err));
+    },
+  },
 };
 </script>
+
+<style scoped>
+.shop-page {
+  background-color: rgb(220, 220, 220, 0.2);
+}
+</style>
