@@ -6,7 +6,7 @@
           <!-- Logo -->
           <div class="logo">
             <router-link to="/">
-              <img class="img-responsive" src="images/logosejatistore.png" alt />
+              <img class="img-responsive" v-bind:src="'images/logosejatistore.png'" alt />
             </router-link>
           </div>
           <nav class="navbar ownmenu">
