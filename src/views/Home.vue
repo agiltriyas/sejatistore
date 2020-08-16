@@ -4,7 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>-->
 
     <Header />
-    <Banner />
+    <Banner :tbanner="'Our Catalog Product'" />
     <Hero />
     <Footer />
   </div>
@@ -24,7 +24,7 @@ export default {
     Header,
     Banner,
     Hero,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>

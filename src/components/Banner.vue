@@ -4,7 +4,7 @@
     <section class="sub-bnr" data-stellar-background-ratio="0.5">
       <div class="position-center-center">
         <div class="container">
-          <h3 class="text-white">Our Catalog Products</h3>
+          <h3 class="text-white">{{tbanner}}</h3>
           <!-- <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
             Sed feugiat, tellus vel tristique posuere, diam
@@ -23,6 +23,7 @@
 
 <script>
 export default {
-  name: "Banner"
+  name: "Banner",
+  props: ["tbanner"],
 };
 </script>

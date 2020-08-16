@@ -28,12 +28,16 @@
             <!-- NAV -->
             <div class="collapse navbar-collapse" id="nav-open-btn">
               <ul class="nav">
-                <!-- <li class="dropdown active">
-                  <a href="#." class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                </li>-->
-                <!-- <li>
-                  <a href="about.html">about</a>
-                </li>-->
+                <li :class="url == '/' ? 'active' : ''">
+                  <router-link to="/">
+                    <a href class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                  </router-link>
+                </li>
+                <li :class="url == '/about' ? 'active' : ''">
+                  <router-link to="about">
+                    <a href>about</a>
+                  </router-link>
+                </li>
               </ul>
             </div>
           </nav>
@@ -45,6 +49,11 @@
 <script>
 export default {
   name: "Header",
+  data() {
+    return {
+      url: this.$route.path,
+    };
+  },
 };
 </script>
 

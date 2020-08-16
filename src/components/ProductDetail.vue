@@ -79,9 +79,32 @@
                 <!-- INFOMATION -->
                 <div class="inner-info">
                   <h6>How To Order</h6>
-                  <p>Pesan sekarang untuk langsung berhubungan dengan admin kami</p>
+                  <p
+                    class="margin-bottom-20"
+                  >Pesan sekarang untuk langsung berhubungan dengan admin kami</p>
                   <h6>SHIPPING & RETURNS</h6>
-                  <p>Cash On Delivery or Transfer</p>
+                  <p class="margin-bottom-20">Cash On Delivery or Transfer</p>
+                  <h6>Marketplace</h6>
+                  <div class="row text-center margin-top-20">
+                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://www.freepnglogos.com/uploads/logo-tokopedia-png/berita-tokopedia-info-berita-terbaru-tokopedia-6.png"
+                        width="50"
+                      />
+                    </a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://www.pngmart.com/files/12/Shopee-Logo-Transparent-Background.png"
+                        width="50"
+                      />
+                    </a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                      <img
+                        src="https://www.vhv.rs/dpng/d/590-5906735_icon-logo-lazada-png-icon-lazada-logo-png.png"
+                        width="50"
+                      />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -107,17 +130,21 @@
         </div>
       </div>
     </section>
+    <RelatedProduct :type="productDetails.type" />
   </div>
 </template>
 
 <script>
 import carousel from "vue-owl-carousel";
+import RelatedProduct from "@/components/RelatedProduct.vue";
+
 import axios from "axios";
 
 export default {
   name: "ProductDetail",
   components: {
     carousel,
+    RelatedProduct,
   },
   data() {
     return {
