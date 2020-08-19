@@ -66,7 +66,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://dashboard.sejatistore.my.id/api/product", {
+      .get("https://dashboard.sejatistore.my.id/api/product", {
         params: {
           type: this.$props.type,
         },

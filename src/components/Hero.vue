@@ -149,7 +149,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://dashboard.sejatistore.my.id/api/product", {
+      .get("https://dashboard.sejatistore.my.id/api/product", {
         params: {
           limit: 8,
         },
@@ -182,7 +182,7 @@ export default {
     },
     search() {
       axios
-        .get("http://dashboard.sejatistore.my.id/api/product", {
+        .get("https://dashboard.sejatistore.my.id/api/product", {
           params: {
             limit: 9,
             name: this.name,
