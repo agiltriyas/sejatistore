@@ -6,7 +6,11 @@
           <!-- Logo -->
           <div class="logo">
             <router-link to="/">
-              <img class="img-responsive" v-bind:src="'/images/LogoSejatistore.png'" alt />
+              <img
+                class="img-responsive"
+                v-bind:src="'/images/LogoSejatistore.png'"
+                alt
+              />
             </router-link>
           </div>
           <nav class="navbar ownmenu">
@@ -30,12 +34,19 @@
               <ul class="nav">
                 <li :class="url == '/' ? 'active' : ''">
                   <router-link to="/">
-                    <a href class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                    <a href class="dropdown-toggle" data-toggle="dropdown"
+                      >Home</a
+                    >
                   </router-link>
                 </li>
                 <li :class="url == '/about' ? 'active' : ''">
-                  <router-link to="about">
+                  <router-link to="../about">
                     <a href>about</a>
+                  </router-link>
+                </li>
+                <li :class="url == '/blog' ? 'active' : ''">
+                  <router-link to="../blog">
+                    <a href>blog</a>
                   </router-link>
                 </li>
               </ul>

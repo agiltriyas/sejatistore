@@ -8,15 +8,22 @@
             <!-- Popular Images Slider -->
             <div class="col-md-7">
               <!-- Images Slider -->
-              <div class="product-pic-zoom" v-if="productDetails.galleries.length>0">
+              <div
+                class="product-pic-zoom"
+                v-if="productDetails.galleries.length > 0"
+              >
                 <img class="product-big-img" :src="thumbsholder" alt />
               </div>
               <div class="no-image" v-else>
                 <img class src="images/logo-no.jpg" />
               </div>
               <div class="images-slider margin-top-20">
-                <ul class="slides" v-if="productDetails.galleries.length>0">
-                  <carousel :nav="false" :dots="false" class="product-thumbs-track ps-slider">
+                <ul class="slides" v-if="productDetails.galleries.length > 0">
+                  <carousel
+                    :nav="false"
+                    :dots="false"
+                    class="product-thumbs-track ps-slider"
+                  >
                     <div
                       v-for="images in productDetails.galleries"
                       :key="images.id"
@@ -25,9 +32,12 @@
                     >
                       <img
                         class="padding-left-10"
-                        :class="images.picture == thumbsholder ? 'active-carousel': ''"
+                        :class="
+                          images.picture == thumbsholder
+                            ? 'active-carousel'
+                            : ''
+                        "
                         :src="images.picture"
-                        alt
                       />
                     </div>
                   </carousel>
@@ -37,10 +47,10 @@
 
             <!-- COntent -->
             <div class="col-md-5 name-product">
-              <h4>{{productDetails.name}}</h4>
+              <h4>{{ productDetails.name }}</h4>
               <span class="price">
                 <small>Rp</small>
-                {{productDetails.po_details[0].price_r}}
+                {{ productDetails.po_details[0].price_r }}
               </span>
 
               <!-- Short By -->
@@ -50,15 +60,21 @@
                   <li class="col-xs-8">
                     <ul
                       class="colors-shop"
-                      v-if="productDetails.product_details && productDetails.product_details>0"
+                      v-if="
+                        productDetails.product_details &&
+                        productDetails.product_details > 0
+                      "
                     >
                       <li>
                         <span class="margin-right-20">
                           <b>Colors</b>
                         </span>
                       </li>
-                      <ul v-for="(variant) in productDetails.product_details" :key="variant.id">
-                        <li class="padding-right-5">{{variant.variant}}</li>
+                      <ul
+                        v-for="variant in productDetails.product_details"
+                        :key="variant.id"
+                      >
+                        <li class="padding-right-5">{{ variant.variant }}</li>
                       </ul>
                     </ul>
                     <ul v-else>
@@ -72,16 +88,17 @@
                       @click.prevent="hrefWa(productDetails.name)"
                       href="#"
                       class="btn"
-                    >Pesan Sekarang</a>
+                      >Pesan Sekarang</a
+                    >
                   </li>
                 </ul>
 
                 <!-- INFOMATION -->
                 <div class="inner-info">
                   <h6>How To Order</h6>
-                  <p
-                    class="margin-bottom-20"
-                  >Pesan sekarang untuk langsung berhubungan dengan admin kami</p>
+                  <p class="margin-bottom-20">
+                    Pesan sekarang untuk langsung berhubungan dengan admin kami
+                  </p>
                   <h6>SHIPPING & RETURNS</h6>
                   <p class="margin-bottom-20">Cash On Delivery or Transfer</p>
                   <h6>Marketplace</h6>
@@ -114,7 +131,11 @@
         <!--======= PRODUCT DESCRIPTION =========-->
         <div class="item-decribe">
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs animate fadeInUp" data-wow-delay="0.4s" role="tablist">
+          <ul
+            class="nav nav-tabs animate fadeInUp"
+            data-wow-delay="0.4s"
+            role="tablist"
+          >
             <li role="presentation" class="active">
               <a href="#descr" role="tab" data-toggle="tab">DESCRIPTION</a>
             </li>
